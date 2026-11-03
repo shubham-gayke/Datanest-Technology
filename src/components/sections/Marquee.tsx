@@ -39,3 +39,4 @@ export const Marquee: React.FC = () => {
     </section>
   );
 };
+

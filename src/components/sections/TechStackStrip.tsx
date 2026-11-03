@@ -108,3 +108,4 @@ export const TechStackStrip: React.FC = () => {
     </section>
   );
 };
+

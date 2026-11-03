@@ -72,14 +72,14 @@ export const Navbar: React.FC = () => {
       className={cn(
         'fixed top-0 left-0 right-0 z-40 transition-all duration-300',
         isScrolled
-          ? 'py-3.5 glass-nav shadow-sm dark:shadow-black/20'
-          : 'py-5 bg-transparent'
+          ? 'py-3.5 bg-brand-midnight/95 backdrop-blur-2xl border-b border-cyan-500/20 shadow-2xl shadow-black/40'
+          : 'py-4 sm:py-5 bg-brand-midnight/85 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-black/20'
       )}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Brand Logo */}
-          <Logo size="md" />
+          {/* Brand Logo with high-contrast light mode */}
+          <Logo size="md" light />
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-1.5" aria-label="Main Navigation">
@@ -100,17 +100,17 @@ export const Navbar: React.FC = () => {
                       type="button"
                       aria-expanded={isDropdownOpen}
                       className={cn(
-                        'flex items-center gap-1 px-3.5 py-2 rounded-xl text-sm font-semibold transition-colors',
+                        'flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-sm font-semibold transition-all duration-200',
                         isDropdownOpen
-                          ? 'text-brand-blue dark:text-brand-cyan bg-slate-100/60 dark:bg-white/5'
-                          : 'text-slate-700 dark:text-slate-200 hover:text-brand-blue dark:hover:text-brand-cyan'
+                          ? 'text-brand-cyan bg-white/10'
+                          : 'text-slate-200 hover:text-white hover:bg-white/5'
                       )}
                     >
                       <span>{item.label}</span>
                       <ChevronDown
                         className={cn(
                           'w-4 h-4 transition-transform duration-200',
-                          isDropdownOpen ? 'rotate-180 text-brand-blue' : 'text-slate-400'
+                          isDropdownOpen ? 'rotate-180 text-brand-cyan' : 'text-slate-400'
                         )}
                       />
                     </button>
@@ -130,21 +130,21 @@ export const Navbar: React.FC = () => {
                               : 'left-0 w-80'
                           )}
                         >
-                          <div className="rounded-2xl bg-white dark:bg-brand-midnight/95 backdrop-blur-xl border border-slate-200 dark:border-white/10 p-6 shadow-2xl dark:shadow-cyan-950/20">
+                          <div className="rounded-2xl bg-brand-midnight/98 backdrop-blur-2xl border border-white/15 p-6 shadow-2xl shadow-cyan-950/30">
                             {isMega ? (
                               <div>
-                                <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-100 dark:border-white/5">
+                                <div className="flex items-center justify-between pb-4 mb-4 border-b border-white/10">
                                   <div>
-                                    <h3 className="font-heading font-bold text-base text-brand-navy dark:text-white">
+                                    <h3 className="font-heading font-bold text-base text-white">
                                       Enterprise Solutions & Capabilities
                                     </h3>
-                                    <p className="text-xs text-slate-500 dark:text-slate-400">
+                                    <p className="text-xs text-slate-400">
                                       End-to-end IT modernization, cloud infrastructure, and AI engineering
                                     </p>
                                   </div>
                                   <Link
                                     to="/services"
-                                    className="inline-flex items-center gap-1 text-xs font-semibold text-brand-blue dark:text-brand-cyan hover:underline"
+                                    className="inline-flex items-center gap-1 text-xs font-semibold text-brand-cyan hover:underline"
                                   >
                                     <span>All Services</span>
                                     <ArrowRight className="w-3.5 h-3.5" />
@@ -156,23 +156,23 @@ export const Navbar: React.FC = () => {
                                     <Link
                                       key={sub.href}
                                       to={sub.href}
-                                      className="group flex items-start gap-3.5 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-white/5 transition-all border border-transparent hover:border-slate-200 dark:hover:border-white/5"
+                                      className="group flex items-start gap-3.5 p-3 rounded-xl hover:bg-white/5 transition-all border border-transparent hover:border-white/10"
                                     >
-                                      <div className="shrink-0 p-2.5 rounded-xl bg-blue-50 dark:bg-blue-950/60 text-brand-blue dark:text-brand-cyan group-hover:scale-110 group-hover:bg-brand-blue group-hover:text-white transition-all">
+                                      <div className="shrink-0 p-2.5 rounded-xl bg-blue-950/80 text-brand-cyan group-hover:scale-110 group-hover:bg-brand-blue group-hover:text-white transition-all">
                                         {sub.icon && iconMap[sub.icon] ? iconMap[sub.icon] : <Sparkles className="w-5 h-5" />}
                                       </div>
                                       <div className="flex-1 min-w-0">
                                         <div className="flex items-center gap-2">
-                                          <p className="text-sm font-semibold text-slate-900 dark:text-white group-hover:text-brand-blue dark:group-hover:text-brand-cyan transition-colors truncate">
+                                          <p className="text-sm font-semibold text-slate-100 group-hover:text-brand-cyan transition-colors truncate">
                                             {sub.title}
                                           </p>
                                           {sub.badge && (
-                                            <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300">
+                                            <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-purple-900/60 text-purple-300 border border-purple-700/50">
                                               {sub.badge}
                                             </span>
                                           )}
                                         </div>
-                                        <p className="text-xs text-slate-500 dark:text-slate-400 line-clamp-2 mt-0.5">
+                                        <p className="text-xs text-slate-400 line-clamp-2 mt-0.5">
                                           {sub.description}
                                         </p>
                                       </div>
@@ -186,22 +186,22 @@ export const Navbar: React.FC = () => {
                                   <Link
                                     key={sub.href}
                                     to={sub.href}
-                                    className="group flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-white/5 transition-colors"
+                                    className="group flex items-center gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors"
                                   >
-                                    <div className="shrink-0 p-2 rounded-lg bg-blue-50 dark:bg-blue-950/60 text-brand-blue dark:text-brand-cyan group-hover:bg-brand-blue group-hover:text-white transition-colors">
+                                    <div className="shrink-0 p-2 rounded-lg bg-blue-950/80 text-brand-cyan group-hover:bg-brand-blue group-hover:text-white transition-colors">
                                       {sub.icon && iconMap[sub.icon] ? iconMap[sub.icon] : <Sparkles className="w-4 h-4" />}
                                     </div>
                                     <div>
-                                      <p className="text-sm font-semibold text-slate-900 dark:text-white group-hover:text-brand-blue dark:group-hover:text-brand-cyan transition-colors">
+                                      <p className="text-sm font-semibold text-slate-200 group-hover:text-brand-cyan transition-colors">
                                         {sub.title}
                                       </p>
                                     </div>
                                   </Link>
                                 ))}
-                                <div className="pt-2 border-t border-slate-100 dark:border-white/5 mt-2">
+                                <div className="pt-2 border-t border-white/10 mt-2">
                                   <Link
                                     to={item.href}
-                                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-blue dark:text-brand-cyan px-2.5 py-1 hover:underline"
+                                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-cyan px-2.5 py-1 hover:underline"
                                   >
                                     <span>Explore All {item.label}</span>
                                     <ArrowRight className="w-3.5 h-3.5" />
@@ -223,10 +223,10 @@ export const Navbar: React.FC = () => {
                   to={item.href}
                   className={({ isActive }) =>
                     cn(
-                      'relative px-3.5 py-2 rounded-xl text-sm font-semibold transition-colors',
+                      'relative px-3.5 py-2 rounded-xl text-sm font-semibold transition-all duration-200',
                       isActive
-                        ? 'text-brand-blue dark:text-brand-cyan font-bold'
-                        : 'text-slate-700 dark:text-slate-200 hover:text-brand-blue dark:hover:text-brand-cyan'
+                        ? 'text-brand-cyan font-bold'
+                        : 'text-slate-200 hover:text-white hover:bg-white/5'
                     )
                   }
                 >
@@ -236,7 +236,7 @@ export const Navbar: React.FC = () => {
                       {isActive && (
                         <motion.div
                           layoutId="navbar-active-pill"
-                          className="absolute bottom-0 left-3 right-3 h-0.5 bg-gradient-to-r from-brand-blue to-brand-cyan rounded-full"
+                          className="absolute bottom-0 left-3 right-3 h-0.5 bg-gradient-to-r from-brand-blue via-brand-cyan to-brand-violet rounded-full shadow-glow-cyan"
                           transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                         />
                       )}
@@ -249,10 +249,10 @@ export const Navbar: React.FC = () => {
 
           {/* Right Action Buttons */}
           <div className="hidden lg:flex items-center gap-3">
-            <ThemeToggle />
+            <ThemeToggle className="bg-white/10 border-white/15 text-white hover:bg-white/20 hover:text-brand-cyan" />
             <Link to="/contact">
               <Button
-                variant="primary"
+                variant="glow"
                 size="sm"
                 icon={<ArrowRight className="w-4 h-4" />}
               >
@@ -263,13 +263,13 @@ export const Navbar: React.FC = () => {
 
           {/* Mobile Actions & Hamburger */}
           <div className="flex items-center gap-2 lg:hidden">
-            <ThemeToggle />
+            <ThemeToggle className="bg-white/10 border-white/15 text-white hover:bg-white/20" />
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label={mobileMenuOpen ? 'Close Navigation Menu' : 'Open Navigation Menu'}
               aria-expanded={mobileMenuOpen}
-              className="p-2.5 rounded-xl border border-slate-200 dark:border-white/10 bg-white/80 dark:bg-brand-card/80 text-slate-700 dark:text-slate-200 hover:text-brand-blue focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue"
+              className="p-2.5 rounded-xl border border-white/15 bg-white/10 text-white hover:bg-white/20 hover:text-brand-cyan focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan transition-colors"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -285,19 +285,19 @@ export const Navbar: React.FC = () => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
-            className="lg:hidden border-b border-slate-200 dark:border-white/10 bg-white/95 dark:bg-brand-midnight/95 backdrop-blur-xl px-4 pt-3 pb-6 shadow-xl"
+            className="lg:hidden border-b border-white/15 bg-brand-midnight/98 backdrop-blur-2xl px-4 pt-3 pb-6 shadow-2xl text-white"
           >
             <div className="space-y-2 py-2 max-h-[75vh] overflow-y-auto">
               {navigationData.map((item) => (
-                <div key={item.label} className="border-b border-slate-100 dark:border-white/5 pb-2">
+                <div key={item.label} className="border-b border-white/10 pb-2">
                   <NavLink
                     to={item.href}
                     className={({ isActive }) =>
                       cn(
                         'block px-3 py-2 text-base font-semibold rounded-lg',
                         isActive
-                          ? 'text-brand-blue dark:text-brand-cyan bg-blue-50 dark:bg-white/5'
-                          : 'text-slate-800 dark:text-slate-200'
+                          ? 'text-brand-cyan bg-white/10 font-bold'
+                          : 'text-slate-200 hover:text-white'
                       )
                     }
                   >
@@ -309,7 +309,7 @@ export const Navbar: React.FC = () => {
                         <Link
                           key={sub.href}
                           to={sub.href}
-                          className="flex items-center gap-2 py-1.5 px-2 text-xs text-slate-600 dark:text-slate-400 hover:text-brand-blue"
+                          className="flex items-center gap-2 py-1.5 px-2 text-xs text-slate-300 hover:text-brand-cyan"
                         >
                           <span className="w-1.5 h-1.5 rounded-full bg-brand-cyan" />
                           <span>{sub.title}</span>
@@ -321,7 +321,7 @@ export const Navbar: React.FC = () => {
               ))}
               <div className="pt-4">
                 <Link to="/contact" className="block w-full">
-                  <Button variant="primary" size="md" className="w-full">
+                  <Button variant="glow" size="md" className="w-full">
                     Schedule Consultation
                   </Button>
                 </Link>

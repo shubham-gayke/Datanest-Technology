@@ -197,3 +197,4 @@ export const CaseStudyDetail: React.FC = () => {
     </>
   );
 };
+

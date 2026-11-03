@@ -165,3 +165,4 @@ export const footerLinks = {
     { name: 'YouTube', href: 'https://youtube.com', icon: 'Youtube' },
   ],
 };
+

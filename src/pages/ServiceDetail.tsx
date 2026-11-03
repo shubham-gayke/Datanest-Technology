@@ -245,3 +245,4 @@ export const ServiceDetail: React.FC = () => {
     </>
   );
 };
+

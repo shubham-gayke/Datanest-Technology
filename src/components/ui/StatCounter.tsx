@@ -60,3 +60,4 @@ export const StatCounter: React.FC<StatCounterProps> = ({
     </span>
   );
 };
+

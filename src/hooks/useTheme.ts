@@ -7,9 +7,9 @@ export function useTheme() {
     if (typeof window !== 'undefined') {
       const savedTheme = localStorage.getItem('datanest-theme') as Theme | null;
       if (savedTheme) return savedTheme;
-      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      return 'dark'; // Enterprise default dark aesthetic
     }
-    return 'dark'; // Enterprise default dark aesthetic
+    return 'dark';
   });
 
   useEffect(() => {

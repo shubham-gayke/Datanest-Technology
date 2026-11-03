@@ -48,3 +48,4 @@ export const Preloader: React.FC = () => {
     </AnimatePresence>
   );
 };
+

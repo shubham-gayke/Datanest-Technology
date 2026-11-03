@@ -51,3 +51,4 @@ export const testimonialsData: Testimonial[] = [
     highlight: '100% Zero-Trust Compliance Achieved',
   },
 ];
+

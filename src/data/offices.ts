@@ -93,3 +93,4 @@ export const officesData: Office[] = [
     coordinates: { x: 91, y: 80 },
   },
 ];
+

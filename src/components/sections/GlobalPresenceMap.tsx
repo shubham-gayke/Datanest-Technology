@@ -185,3 +185,4 @@ export const GlobalPresenceMap: React.FC = () => {
     </section>
   );
 };
+

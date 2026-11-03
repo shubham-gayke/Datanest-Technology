@@ -64,3 +64,4 @@ export const teamData: TeamMember[] = [
     linkedin: 'https://linkedin.com',
   },
 ];
+

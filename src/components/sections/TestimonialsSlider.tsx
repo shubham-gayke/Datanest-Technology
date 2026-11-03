@@ -125,3 +125,4 @@ export const TestimonialsSlider: React.FC = () => {
     </section>
   );
 };
+

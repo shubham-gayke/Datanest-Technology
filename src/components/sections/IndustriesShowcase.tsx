@@ -151,3 +151,4 @@ export const IndustriesShowcase: React.FC = () => {
     </section>
   );
 };
+

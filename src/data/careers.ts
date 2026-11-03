@@ -160,3 +160,4 @@ export const culturePillars = [
     icon: 'Users',
   },
 ];
+

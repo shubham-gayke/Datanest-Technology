@@ -71,3 +71,4 @@ export const CursorFollower: React.FC = () => {
     />
   );
 };
+

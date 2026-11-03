@@ -80,3 +80,4 @@ export const InsightsPreview: React.FC = () => {
     </section>
   );
 };
+

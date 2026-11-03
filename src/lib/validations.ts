@@ -35,3 +35,4 @@ export const newsletterSchema = z.object({
 });
 
 export type NewsletterData = z.infer<typeof newsletterSchema>;
+

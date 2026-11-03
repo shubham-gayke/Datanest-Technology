@@ -120,3 +120,4 @@ export const Industries: React.FC = () => {
     </>
   );
 };
+

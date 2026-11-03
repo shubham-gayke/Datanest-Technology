@@ -57,3 +57,4 @@ export const trustedClients = [
   { name: 'Strata Energy Partners', badge: 'Energy & Utilities' },
   { name: 'Finova Capital', badge: 'Capital Markets' },
 ];
+

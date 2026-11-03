@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { cn } from '@/lib/utils';
 
 interface LogoProps {
   className?: string;
@@ -7,6 +8,7 @@ interface LogoProps {
   size?: 'sm' | 'md' | 'lg';
   variant?: 'full' | 'mark-only';
   useImage?: boolean;
+  light?: boolean;
 }
 
 export const Logo: React.FC<LogoProps> = ({
@@ -15,6 +17,7 @@ export const Logo: React.FC<LogoProps> = ({
   size = 'md',
   variant = 'full',
   useImage = false,
+  light = false,
 }) => {
   const sizeMap = {
     sm: { icon: 30, text: 'text-lg', subtext: 'text-[9px]' },
@@ -34,11 +37,21 @@ export const Logo: React.FC<LogoProps> = ({
         />
         {variant === 'full' && (
           <div className="flex flex-col">
-            <span className="font-heading font-extrabold tracking-tight text-brand-navy dark:text-white leading-none text-xl">
+            <span
+              className={cn(
+                'font-heading font-extrabold tracking-tight leading-none text-xl transition-colors',
+                light ? 'text-white' : 'text-brand-navy dark:text-white'
+              )}
+            >
               Datanest
             </span>
             {showTagline && (
-              <span className="font-sans font-semibold tracking-wider uppercase text-brand-violet dark:text-brand-accent text-[10px] mt-0.5">
+              <span
+                className={cn(
+                  'font-sans font-semibold tracking-wider uppercase text-[10px] mt-0.5 transition-colors',
+                  light ? 'text-brand-cyan' : 'text-brand-violet dark:text-brand-accent'
+                )}
+              >
                 Technology
               </span>
             )}
@@ -83,7 +96,7 @@ export const Logo: React.FC<LogoProps> = ({
             strokeWidth="8.5"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="text-brand-navy dark:text-white transition-colors"
+            className={light ? 'text-brand-cyan' : 'text-brand-navy dark:text-white transition-colors'}
           />
 
           {/* Right Angle Bracket > */}
@@ -93,7 +106,7 @@ export const Logo: React.FC<LogoProps> = ({
             strokeWidth="8.5"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="text-brand-navy dark:text-white transition-colors"
+            className={light ? 'text-brand-cyan' : 'text-brand-navy dark:text-white transition-colors'}
           />
 
           {/* Connected Network Nodes Matrix */}
@@ -110,12 +123,12 @@ export const Logo: React.FC<LogoProps> = ({
           </g>
 
           {/* Intelligent Data Nodes */}
-          <circle cx="50" cy="36" r="4.5" fill="#9333EA" />
+          <circle cx="50" cy="36" r="4.5" fill="#C084FC" />
           <circle cx="40" cy="44" r="4" fill="#A855F7" />
           <circle cx="60" cy="44" r="4" fill="#7C3AED" />
           <circle cx="50" cy="50" r="5" fill="#6366F1" />
           <circle cx="38" cy="56" r="4.2" fill="#4F46E5" />
-          <circle cx="62" cy="56" r="4.2" fill="#3B82F6" />
+          <circle cx="62" cy="56" r="4.2" fill="#38BDF8" />
           <circle cx="50" cy="64" r="4.8" fill="#2563EB" />
         </svg>
       </div>
@@ -123,13 +136,21 @@ export const Logo: React.FC<LogoProps> = ({
       {variant === 'full' && (
         <div className="flex flex-col">
           <span
-            className={`font-heading font-extrabold tracking-tight text-brand-navy dark:text-white leading-none ${currentSize.text} transition-colors`}
+            className={cn(
+              'font-heading font-extrabold tracking-tight leading-none transition-colors',
+              currentSize.text,
+              light ? 'text-white' : 'text-brand-navy dark:text-white'
+            )}
           >
             Datanest
           </span>
           {showTagline && (
             <span
-              className={`font-sans font-semibold tracking-wider uppercase text-purple-700 dark:text-brand-accent ${currentSize.subtext} mt-0.5 transition-colors`}
+              className={cn(
+                'font-sans font-semibold tracking-wider uppercase mt-0.5 transition-colors',
+                currentSize.subtext,
+                light ? 'text-brand-cyan' : 'text-purple-700 dark:text-brand-accent'
+              )}
             >
               Technology
             </span>

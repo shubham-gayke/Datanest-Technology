@@ -168,3 +168,4 @@ export const BlogDetail: React.FC = () => {
     </>
   );
 };
+
