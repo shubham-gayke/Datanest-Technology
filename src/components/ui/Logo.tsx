@@ -40,7 +40,7 @@ export const Logo: React.FC<LogoProps> = ({
             <span
               className={cn(
                 'font-heading font-extrabold tracking-tight leading-none text-xl transition-colors',
-                light ? 'text-white' : 'text-brand-navy dark:text-white'
+                light ? 'text-white' : 'text-brand-navy'
               )}
             >
               Datanest
@@ -49,7 +49,7 @@ export const Logo: React.FC<LogoProps> = ({
               <span
                 className={cn(
                   'font-sans font-semibold tracking-wider uppercase text-[10px] mt-0.5 transition-colors',
-                  light ? 'text-brand-cyan' : 'text-brand-violet dark:text-brand-accent'
+                  light ? 'text-brand-cyan' : 'text-brand-violet'
                 )}
               >
                 Technology
@@ -79,14 +79,6 @@ export const Logo: React.FC<LogoProps> = ({
               <stop offset="50%" stopColor="#7C3AED" />
               <stop offset="100%" stopColor="#2563EB" />
             </linearGradient>
-            <linearGradient id="bracket-light" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stopColor="#0B1B3D" />
-              <stop offset="100%" stopColor="#1E3A8A" />
-            </linearGradient>
-            <linearGradient id="bracket-dark" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stopColor="#38BDF8" />
-              <stop offset="100%" stopColor="#2563EB" />
-            </linearGradient>
           </defs>
 
           {/* Left Angle Bracket < */}
@@ -96,7 +88,7 @@ export const Logo: React.FC<LogoProps> = ({
             strokeWidth="8.5"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className={light ? 'text-brand-cyan' : 'text-brand-navy dark:text-white transition-colors'}
+            className={light ? 'text-white' : 'text-brand-navy transition-colors'}
           />
 
           {/* Right Angle Bracket > */}
@@ -106,7 +98,7 @@ export const Logo: React.FC<LogoProps> = ({
             strokeWidth="8.5"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className={light ? 'text-brand-cyan' : 'text-brand-navy dark:text-white transition-colors'}
+            className={light ? 'text-white' : 'text-brand-navy transition-colors'}
           />
 
           {/* Connected Network Nodes Matrix */}
@@ -123,12 +115,12 @@ export const Logo: React.FC<LogoProps> = ({
           </g>
 
           {/* Intelligent Data Nodes */}
-          <circle cx="50" cy="36" r="4.5" fill="#C084FC" />
+          <circle cx="50" cy="36" r="4.5" fill="#9333EA" />
           <circle cx="40" cy="44" r="4" fill="#A855F7" />
           <circle cx="60" cy="44" r="4" fill="#7C3AED" />
           <circle cx="50" cy="50" r="5" fill="#6366F1" />
           <circle cx="38" cy="56" r="4.2" fill="#4F46E5" />
-          <circle cx="62" cy="56" r="4.2" fill="#38BDF8" />
+          <circle cx="62" cy="56" r="4.2" fill="#3B82F6" />
           <circle cx="50" cy="64" r="4.8" fill="#2563EB" />
         </svg>
       </div>
@@ -139,7 +131,7 @@ export const Logo: React.FC<LogoProps> = ({
             className={cn(
               'font-heading font-extrabold tracking-tight leading-none transition-colors',
               currentSize.text,
-              light ? 'text-white' : 'text-brand-navy dark:text-white'
+              light ? 'text-white' : 'text-brand-navy'
             )}
           >
             Datanest
@@ -149,7 +141,7 @@ export const Logo: React.FC<LogoProps> = ({
               className={cn(
                 'font-sans font-semibold tracking-wider uppercase mt-0.5 transition-colors',
                 currentSize.subtext,
-                light ? 'text-brand-cyan' : 'text-purple-700 dark:text-brand-accent'
+                light ? 'text-brand-cyan' : 'text-brand-violet'
               )}
             >
               Technology

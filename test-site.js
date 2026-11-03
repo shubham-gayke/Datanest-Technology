@@ -10,6 +10,7 @@ async function runTests() {
   });
 
   const page = await browser.newPage();
+  await page.setCacheEnabled(false);
   const consoleErrors = [];
 
   page.on('console', (msg) => {

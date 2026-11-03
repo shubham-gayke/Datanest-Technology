@@ -70,16 +70,21 @@ export const Navbar: React.FC = () => {
   return (
     <header
       className={cn(
-        'fixed top-0 left-0 right-0 z-40 transition-all duration-300',
+        'fixed top-0 left-0 right-0 z-40 transition-all duration-300 backdrop-blur-xl border-b',
+        /* White Max with Faint Blue Undertone & Border */
         isScrolled
-          ? 'py-3.5 bg-brand-midnight/95 backdrop-blur-2xl border-b border-cyan-500/20 shadow-2xl shadow-black/40'
-          : 'py-4 sm:py-5 bg-brand-midnight/85 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-black/20'
+          ? 'py-3.5 border-blue-200/80 shadow-[0_4px_25px_-5px_rgba(37,99,235,0.12)]'
+          : 'py-4 sm:py-5 border-blue-100/90 shadow-[0_2px_15px_-3px_rgba(37,99,235,0.07)]'
       )}
+      style={{
+        backgroundColor: isScrolled ? 'rgba(255, 255, 255, 0.97)' : 'rgba(255, 255, 255, 0.93)',
+        backgroundImage: 'linear-gradient(to right, #FFFFFF, rgba(239, 246, 255, 0.65), #FFFFFF)',
+      }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Brand Logo with high-contrast light mode */}
-          <Logo size="md" light />
+          {/* Brand Logo in rich navy & purple on white */}
+          <Logo size="md" light={false} />
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-1.5" aria-label="Main Navigation">
@@ -102,15 +107,15 @@ export const Navbar: React.FC = () => {
                       className={cn(
                         'flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-sm font-semibold transition-all duration-200',
                         isDropdownOpen
-                          ? 'text-brand-cyan bg-white/10'
-                          : 'text-slate-200 hover:text-white hover:bg-white/5'
+                          ? 'text-brand-blue bg-blue-50/80'
+                          : 'text-slate-700 hover:text-brand-blue hover:bg-blue-50/50'
                       )}
                     >
                       <span>{item.label}</span>
                       <ChevronDown
                         className={cn(
                           'w-4 h-4 transition-transform duration-200',
-                          isDropdownOpen ? 'rotate-180 text-brand-cyan' : 'text-slate-400'
+                          isDropdownOpen ? 'rotate-180 text-brand-blue' : 'text-slate-400'
                         )}
                       />
                     </button>
@@ -130,21 +135,21 @@ export const Navbar: React.FC = () => {
                               : 'left-0 w-80'
                           )}
                         >
-                          <div className="rounded-2xl bg-brand-midnight/98 backdrop-blur-2xl border border-white/15 p-6 shadow-2xl shadow-cyan-950/30">
+                          <div className="rounded-2xl bg-white border border-blue-100 p-6 shadow-2xl shadow-blue-950/10">
                             {isMega ? (
                               <div>
-                                <div className="flex items-center justify-between pb-4 mb-4 border-b border-white/10">
+                                <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-100">
                                   <div>
-                                    <h3 className="font-heading font-bold text-base text-white">
+                                    <h3 className="font-heading font-bold text-base text-brand-navy">
                                       Enterprise Solutions & Capabilities
                                     </h3>
-                                    <p className="text-xs text-slate-400">
+                                    <p className="text-xs text-slate-500">
                                       End-to-end IT modernization, cloud infrastructure, and AI engineering
                                     </p>
                                   </div>
                                   <Link
                                     to="/services"
-                                    className="inline-flex items-center gap-1 text-xs font-semibold text-brand-cyan hover:underline"
+                                    className="inline-flex items-center gap-1 text-xs font-semibold text-brand-blue hover:underline"
                                   >
                                     <span>All Services</span>
                                     <ArrowRight className="w-3.5 h-3.5" />
@@ -156,23 +161,23 @@ export const Navbar: React.FC = () => {
                                     <Link
                                       key={sub.href}
                                       to={sub.href}
-                                      className="group flex items-start gap-3.5 p-3 rounded-xl hover:bg-white/5 transition-all border border-transparent hover:border-white/10"
+                                      className="group flex items-start gap-3.5 p-3 rounded-xl hover:bg-blue-50/70 transition-all border border-transparent hover:border-blue-100"
                                     >
-                                      <div className="shrink-0 p-2.5 rounded-xl bg-blue-950/80 text-brand-cyan group-hover:scale-110 group-hover:bg-brand-blue group-hover:text-white transition-all">
+                                      <div className="shrink-0 p-2.5 rounded-xl bg-blue-50 text-brand-blue group-hover:scale-110 group-hover:bg-brand-blue group-hover:text-white transition-all">
                                         {sub.icon && iconMap[sub.icon] ? iconMap[sub.icon] : <Sparkles className="w-5 h-5" />}
                                       </div>
                                       <div className="flex-1 min-w-0">
                                         <div className="flex items-center gap-2">
-                                          <p className="text-sm font-semibold text-slate-100 group-hover:text-brand-cyan transition-colors truncate">
+                                          <p className="text-sm font-semibold text-slate-900 group-hover:text-brand-blue transition-colors truncate">
                                             {sub.title}
                                           </p>
                                           {sub.badge && (
-                                            <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-purple-900/60 text-purple-300 border border-purple-700/50">
+                                            <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-purple-100 text-purple-700 border border-purple-200">
                                               {sub.badge}
                                             </span>
                                           )}
                                         </div>
-                                        <p className="text-xs text-slate-400 line-clamp-2 mt-0.5">
+                                        <p className="text-xs text-slate-500 line-clamp-2 mt-0.5">
                                           {sub.description}
                                         </p>
                                       </div>
@@ -186,22 +191,22 @@ export const Navbar: React.FC = () => {
                                   <Link
                                     key={sub.href}
                                     to={sub.href}
-                                    className="group flex items-center gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors"
+                                    className="group flex items-center gap-3 p-2.5 rounded-xl hover:bg-blue-50/70 transition-colors"
                                   >
-                                    <div className="shrink-0 p-2 rounded-lg bg-blue-950/80 text-brand-cyan group-hover:bg-brand-blue group-hover:text-white transition-colors">
+                                    <div className="shrink-0 p-2 rounded-lg bg-blue-50 text-brand-blue group-hover:bg-brand-blue group-hover:text-white transition-colors">
                                       {sub.icon && iconMap[sub.icon] ? iconMap[sub.icon] : <Sparkles className="w-4 h-4" />}
                                     </div>
                                     <div>
-                                      <p className="text-sm font-semibold text-slate-200 group-hover:text-brand-cyan transition-colors">
+                                      <p className="text-sm font-semibold text-slate-800 group-hover:text-brand-blue transition-colors">
                                         {sub.title}
                                       </p>
                                     </div>
                                   </Link>
                                 ))}
-                                <div className="pt-2 border-t border-white/10 mt-2">
+                                <div className="pt-2 border-t border-slate-100 mt-2">
                                   <Link
                                     to={item.href}
-                                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-cyan px-2.5 py-1 hover:underline"
+                                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-blue px-2.5 py-1 hover:underline"
                                   >
                                     <span>Explore All {item.label}</span>
                                     <ArrowRight className="w-3.5 h-3.5" />
@@ -225,8 +230,8 @@ export const Navbar: React.FC = () => {
                     cn(
                       'relative px-3.5 py-2 rounded-xl text-sm font-semibold transition-all duration-200',
                       isActive
-                        ? 'text-brand-cyan font-bold'
-                        : 'text-slate-200 hover:text-white hover:bg-white/5'
+                        ? 'text-brand-blue font-bold'
+                        : 'text-slate-700 hover:text-brand-blue hover:bg-blue-50/50'
                     )
                   }
                 >
@@ -236,7 +241,7 @@ export const Navbar: React.FC = () => {
                       {isActive && (
                         <motion.div
                           layoutId="navbar-active-pill"
-                          className="absolute bottom-0 left-3 right-3 h-0.5 bg-gradient-to-r from-brand-blue via-brand-cyan to-brand-violet rounded-full shadow-glow-cyan"
+                          className="absolute bottom-0 left-3 right-3 h-0.5 bg-gradient-to-r from-brand-blue via-brand-cyan to-indigo-600 rounded-full"
                           transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                         />
                       )}
@@ -249,10 +254,10 @@ export const Navbar: React.FC = () => {
 
           {/* Right Action Buttons */}
           <div className="hidden lg:flex items-center gap-3">
-            <ThemeToggle className="bg-white/10 border-white/15 text-white hover:bg-white/20 hover:text-brand-cyan" />
+            <ThemeToggle className="bg-slate-100/90 border-slate-200/90 text-slate-700 hover:bg-blue-50 hover:text-brand-blue hover:border-blue-200 shadow-sm" />
             <Link to="/contact">
               <Button
-                variant="glow"
+                variant="primary"
                 size="sm"
                 icon={<ArrowRight className="w-4 h-4" />}
               >
@@ -263,13 +268,13 @@ export const Navbar: React.FC = () => {
 
           {/* Mobile Actions & Hamburger */}
           <div className="flex items-center gap-2 lg:hidden">
-            <ThemeToggle className="bg-white/10 border-white/15 text-white hover:bg-white/20" />
+            <ThemeToggle className="bg-slate-100/90 border-slate-200/90 text-slate-700 hover:bg-blue-50" />
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label={mobileMenuOpen ? 'Close Navigation Menu' : 'Open Navigation Menu'}
               aria-expanded={mobileMenuOpen}
-              className="p-2.5 rounded-xl border border-white/15 bg-white/10 text-white hover:bg-white/20 hover:text-brand-cyan focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan transition-colors"
+              className="p-2.5 rounded-xl border border-slate-200/90 bg-slate-100/90 text-slate-800 hover:bg-blue-50 hover:text-brand-blue focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue transition-colors shadow-sm"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -285,19 +290,19 @@ export const Navbar: React.FC = () => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
-            className="lg:hidden border-b border-white/15 bg-brand-midnight/98 backdrop-blur-2xl px-4 pt-3 pb-6 shadow-2xl text-white"
+            className="lg:hidden border-b border-blue-100 bg-white/98 backdrop-blur-2xl px-4 pt-3 pb-6 shadow-xl text-slate-800"
           >
             <div className="space-y-2 py-2 max-h-[75vh] overflow-y-auto">
               {navigationData.map((item) => (
-                <div key={item.label} className="border-b border-white/10 pb-2">
+                <div key={item.label} className="border-b border-slate-100 pb-2">
                   <NavLink
                     to={item.href}
                     className={({ isActive }) =>
                       cn(
                         'block px-3 py-2 text-base font-semibold rounded-lg',
                         isActive
-                          ? 'text-brand-cyan bg-white/10 font-bold'
-                          : 'text-slate-200 hover:text-white'
+                          ? 'text-brand-blue bg-blue-50 font-bold'
+                          : 'text-slate-800 hover:text-brand-blue'
                       )
                     }
                   >
@@ -309,9 +314,9 @@ export const Navbar: React.FC = () => {
                         <Link
                           key={sub.href}
                           to={sub.href}
-                          className="flex items-center gap-2 py-1.5 px-2 text-xs text-slate-300 hover:text-brand-cyan"
+                          className="flex items-center gap-2 py-1.5 px-2 text-xs text-slate-600 hover:text-brand-blue"
                         >
-                          <span className="w-1.5 h-1.5 rounded-full bg-brand-cyan" />
+                          <span className="w-1.5 h-1.5 rounded-full bg-brand-blue" />
                           <span>{sub.title}</span>
                         </Link>
                       ))}
@@ -321,7 +326,7 @@ export const Navbar: React.FC = () => {
               ))}
               <div className="pt-4">
                 <Link to="/contact" className="block w-full">
-                  <Button variant="glow" size="md" className="w-full">
+                  <Button variant="primary" size="md" className="w-full">
                     Schedule Consultation
                   </Button>
                 </Link>
