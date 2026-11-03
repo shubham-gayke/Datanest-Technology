@@ -1,0 +1,84 @@
+ROLE
+You are a senior front-end architect and UI/UX designer. Build a complete, production-quality corporate website for "Datanest Technology", a global IT services and consulting company (positioning similar to TCS, Wipro, Infosys, Accenture). The site must look enterprise-grade, trustworthy and modern, with polished scroll animations and hover effects.
+
+CONSTRAINTS
+- Frontend only. NO backend, NO database, NO real API calls.
+- The Contact Us form must FEEL fully functional: validate, show a loading state, wait ~1.5 seconds (simulated), then show a success message. Nothing is actually sent.
+- Use placeholder but realistic, professional content. Do not use real client logos or copyrighted material. Use simple SVG icons, abstract gradients and generated SVG illustrations. If you use stock images, use reliable free sources and always provide a graceful fallback.
+
+TECH STACK
+- React 18 + Vite + TypeScript
+- Tailwind CSS (custom theme tokens)
+- Framer Motion for scroll-reveal, page transitions, hover and micro-interactions
+- React Router v6 for multi-page routing
+- Lenis (or similar) for smooth scrolling
+- lucide-react for icons
+- react-countup (or custom hook) for animated stats
+- Swiper or embla-carousel for testimonials/logo marquee
+- react-hook-form + zod for form validation
+- sonner or react-hot-toast for notifications
+
+BRAND AND DESIGN SYSTEM
+- Name: Datanest Technology. Tagline: "Engineering Intelligent Digital Futures".
+- Create a simple SVG logo (a nest/hexagon-node mark plus wordmark).
+- Palette: deep navy (#0A1330), electric blue (#2563EB), cyan accent (#06B6D4), violet highlight (#7C3AED), light gray backgrounds (#F5F7FB), white cards. Support a dark hero section with a gradient mesh.
+- Typography: Plus Jakarta Sans or Inter for body, Sora or Poppins for headings (Google Fonts).
+- Style: clean, spacious, rounded-2xl cards, soft shadows, subtle glassmorphism in the hero, consistent 8px spacing scale.
+- Fully responsive (mobile, tablet, desktop, large screens). Include a dark mode toggle if time permits.
+
+PAGES AND SECTIONS
+1. Home
+   - Sticky transparent navbar that turns solid with blur on scroll; mega-menu dropdown for Services; mobile hamburger drawer with animation; "Contact Us" CTA button.
+   - Hero: large headline with animated gradient text, subheading, two CTAs, animated background (floating nodes/particles or gradient mesh), and a scroll-down indicator.
+   - Trusted-by marquee (infinite scroll of placeholder company name badges).
+   - Animated stats counters (e.g., 15+ years, 1200+ projects, 40+ countries, 5000+ experts) that count up when scrolled into view.
+   - Services overview grid (8 cards) with hover lift, icon animation and gradient border glow.
+   - Industries section (Banking and Finance, Healthcare, Retail, Manufacturing, Telecom, Logistics) with hover-reveal cards.
+   - "Why Datanest" section with alternating image/text blocks and parallax effect.
+   - Technology stack strip (AI/ML, Cloud, DevOps, Data, Cybersecurity, IoT) with animated icons.
+   - Case studies carousel/cards with hover zoom and "Read more".
+   - Testimonials slider.
+   - Latest insights/blog preview cards.
+   - Big CTA banner with animated gradient background.
+   - Footer: multi-column links, newsletter input (fake success), social icons, address, copyright.
+2. About Us: company story, vision/mission/values, animated timeline of milestones, leadership team cards with hover effect, global presence section (stylized SVG world map with pulsing location dots), awards/certifications.
+3. Services (overview page) plus individual service detail pages using a reusable template: Cloud Computing, AI and Machine Learning, Data Analytics, Cybersecurity, Application Development, DevOps and Automation, ERP and Digital Transformation, IT Consulting and Managed Services. Each includes overview, key offerings, process steps, benefits, FAQs (animated accordion) and CTA.
+4. Industries page
+5. Case Studies page with category filter (animated filtering) and a detail layout.
+6. Careers page: culture section, perks, open positions list with filter by department/location, and an "Apply" modal with a fake submit and success state.
+7. Insights/Blog page with search and category filter, plus a blog detail template.
+8. Contact Us page:
+   - Form fields: Full Name, Work Email, Phone, Company, Service of Interest (dropdown), Message, consent checkbox.
+   - Real-time validation with clear error messages (zod).
+   - On submit: disable button, show spinner, wait ~1.5s, then show an animated success state/modal ("Thank you! Our team will contact you within 24 hours") and a toast. Reset the form afterwards.
+   - Also show office locations, phone, email, working hours, and a stylized map placeholder (no API key needed).
+9. 404 page with a creative animation, and Privacy Policy / Terms placeholder pages.
+
+ANIMATION AND INTERACTION REQUIREMENTS
+- Scroll-triggered reveal animations (fade-up, slide-in, scale, staggered children) on every section using whileInView, triggered once.
+- Smooth scrolling (Lenis) and a thin top scroll-progress bar.
+- Parallax effects on hero and selected image sections.
+- Smooth page transitions between routes (AnimatePresence).
+- Hover effects: card lift and shadow, gradient border glow, icon rotation/scale, animated underline links, button shine/ripple, magnetic CTA button, image zoom with overlay.
+- Animated navbar link underline and active-state indicator.
+- Number counters, marquee, accordion, tabs and modal animations.
+- Custom subtle cursor follower on desktop (optional, disabled on touch devices).
+- Skeleton or fade-in loading for the initial page load (short branded preloader).
+- Respect prefers-reduced-motion by disabling or minimizing heavy animations.
+
+CODE QUALITY
+- Clean, scalable folder structure: src/components (ui, layout, sections), src/pages, src/data (all content in typed constants/JSON), src/hooks, src/lib, src/assets.
+- Build reusable components: Button, Card, SectionHeading, Container, Reveal (animation wrapper), StatCounter, Accordion, Modal, FormField.
+- Keep all text content in data files so it's easy to edit.
+- Strong accessibility: semantic HTML, alt text, focus states, ARIA labels, keyboard navigable menu and modals, color contrast AA.
+- SEO basics: page titles and meta descriptions per route (react-helmet-async), favicon, Open Graph tags.
+- Performance: lazy-load routes and images, optimize animations (transform/opacity only), no layout shift.
+- No console errors or warnings. ESLint and Prettier configured.
+
+DELIVERABLES
+1. Full working project that runs with `npm install` and `npm run dev`, and builds with `npm run build`.
+2. A README with setup steps, folder structure, how to edit content, and how to deploy to Vercel/Netlify.
+3. After building, run the dev server, open the site in the browser, and verify: all routes load, navbar and mobile menu work, animations trigger on scroll, hover effects work, the contact form validates and shows the fake success flow, and the layout is responsive at 375px, 768px and 1440px. Fix any issues you find before finishing.
+
+WORKFLOW
+First produce a short plan (sitemap, component list, design tokens). Then implement step by step: setup, design system and layout, home page, remaining pages, animations polish, QA. Summarize what you built at the end.
